@@ -2,9 +2,11 @@
     <string name="app_name">Конвертер валют</string>
     <string name="transfer">Конвертировать</string>
     <string name="header_main_page_primary">Перевести из рублей в доллары</string>
-    <string name="rub_amount">Количество в рублях</string>
+    <string name="rub_amount">Рубли</string>
+    <string name="usd_amount">Доллары</string>
     <string name="usd_result">Результат в долларах</string>
     <string name="copied">Скопировано в буфер</string>
     <string name="wrong_format_warning">Неправильный формат ввода</string>
     <string name="rate_hint">Текущий курс: </string>
+    <string name="copy_results">Скопировать результаты</string>
 </resources>
