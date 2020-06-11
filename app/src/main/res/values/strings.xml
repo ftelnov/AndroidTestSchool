@@ -4,4 +4,6 @@
     <string name="header_main_page_primary">Перевести из рублей в доллары</string>
     <string name="rub_amount">Количество в рублях</string>
     <string name="usd_result">Результат в долларах</string>
+    <string name="copied">Скопировано в буфер</string>
+    <string name="wrong_format_warning">Неправильный формат ввода</string>
 </resources>
