@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                         if (secondInput != null) {
                             val firstInput = secondInput * firstSelectedRate / secondSelectedRate
                             firstInputLayout.removeTextChangedListener(firstChangedListener)
-                            firstInputLayout.setText(secondInput.toString())
+                            firstInputLayout.setText(firstInput.toString())
                             firstInputLayout.addTextChangedListener(firstChangedListener)
                         }
                     }
