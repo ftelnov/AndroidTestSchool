@@ -7,26 +7,28 @@ import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-
-const val EXCHANGE_RATE = 74 // Курс обмена рубля на доллар
+// Отношение валют к доллару
+lateinit var rates: Map<String, Float>
+const val EXCHANGE_RATE = 74
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        exchangeRate.text = EXCHANGE_RATE.toString()
-        rubInputLayout.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
-        usdInputLayout.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
-        var rubChangedListener: TextWatcher? = null
-        var usdChangedListener: TextWatcher? = null
-        rubChangedListener = object: TextWatcher {
+        firstInputLayout.inputType =
+            InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+        secondInputLayout.inputType =
+            InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+        var firstChangedListener: TextWatcher? = null
+        var secondChangedListener: TextWatcher? = null
+        firstChangedListener = object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
                 val rubInput = p0.toString().toFloatOrNull()
                 if (rubInput != null) {
                     val usdInput = rubInput / EXCHANGE_RATE
-                    usdInputLayout.removeTextChangedListener(usdChangedListener)
-                    usdInputLayout.setText(usdInput.toString())
-                    usdInputLayout.addTextChangedListener(usdChangedListener)
+                    secondInputLayout.removeTextChangedListener(secondChangedListener)
+                    secondInputLayout.setText(usdInput.toString())
+                    secondInputLayout.addTextChangedListener(secondChangedListener)
                 }
             }
 
@@ -36,14 +38,14 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
         }
-        usdChangedListener = object : TextWatcher {
+        secondChangedListener = object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
                 val usdInput = p0.toString().toFloatOrNull()
                 if (usdInput != null) {
                     val rubInput = usdInput * EXCHANGE_RATE
-                    rubInputLayout.removeTextChangedListener(rubChangedListener)
-                    rubInputLayout.setText(rubInput.toString())
-                    rubInputLayout.addTextChangedListener(rubChangedListener)
+                    firstInputLayout.removeTextChangedListener(firstChangedListener)
+                    firstInputLayout.setText(rubInput.toString())
+                    firstInputLayout.addTextChangedListener(firstChangedListener)
                 }
             }
 
@@ -53,11 +55,11 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
         }
-        rubInputLayout.addTextChangedListener(rubChangedListener)
-        usdInputLayout.addTextChangedListener(usdChangedListener)
+        firstInputLayout.addTextChangedListener(firstChangedListener)
+        secondInputLayout.addTextChangedListener(secondChangedListener)
         // Скопировать значение из окон результатов
         copyResults.setOnClickListener {
-            copyToClipboard("Количество в рублях: ${rubInputLayout.text} | Количество в долларах: ${usdInputLayout.text}")
+            copyToClipboard("Количество в ${firstCurrencySelect.selectedItem}: ${firstInputLayout.text} | Количество в ${secondCurrencySelect.selectedItem}: ${secondInputLayout.text}")
         }
     }
 }
