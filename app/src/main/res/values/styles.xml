@@ -24,4 +24,8 @@
             @color/colorTextWhite
         </item>
     </style>
+    <style name="TextWhite">
+        <item name="android:textColor">@color/colorTextWhite</item>
+        <item name="android:textSize">18dp</item>
+    </style>
 </resources>
