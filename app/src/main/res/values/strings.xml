@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidTestSchool</string>
+    <string name="app_name">Конвертер валют</string>
     <string name="transfer">Конвертировать</string>
     <string name="header_main_page_primary">Перевести из рублей в доллары</string>
     <string name="rub_amount">Количество в рублях</string>
