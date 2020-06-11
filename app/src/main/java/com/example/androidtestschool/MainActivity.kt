@@ -4,8 +4,13 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // Отношение валют к доллару
 lateinit var rates: Map<String, Float>
@@ -21,6 +26,21 @@ class MainActivity : AppCompatActivity() {
             InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
         var firstChangedListener: TextWatcher? = null
         var secondChangedListener: TextWatcher? = null
+        progressLayout.visibility = ConstraintLayout.VISIBLE
+        Api.getApiClient().getCurrencies().enqueue(object : Callback<Bodies.GetCurrencyBody> {
+            override fun onFailure(call: Call<Bodies.GetCurrencyBody>, t: Throwable) {
+                Log.e("retrofit2_error", t.toString())
+                showPrimaryToast("Что-то пошло не так")
+            }
+
+            override fun onResponse(
+                call: Call<Bodies.GetCurrencyBody>,
+                response: Response<Bodies.GetCurrencyBody>
+            ) {
+                Log.d("result", response.body().toString())
+            }
+
+        })
         firstChangedListener = object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
                 val rubInput = p0.toString().toFloatOrNull()

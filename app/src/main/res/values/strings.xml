@@ -10,6 +10,7 @@
     <string name="rate_hint">Текущий курс: </string>
     <string name="copy_results">Скопировать результаты</string>
     <string name="number">Число</string>
+    <string name="wait_we_are_loading">Подождите, загружается курс валют..</string>
     <string-array name="currencies">
         <item>Доллар</item>
         <item>Рубль</item>
