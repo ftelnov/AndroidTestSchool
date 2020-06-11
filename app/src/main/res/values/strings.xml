@@ -12,10 +12,18 @@
     <string name="number">Число</string>
     <string name="wait_we_are_loading">Подождите, загружается курс валют..</string>
     <string-array name="currencies">
-        <item>Доллар</item>
-        <item>Рубль</item>
-        <item>Фунт</item>
-        <item>Евро</item>
+        <item>EUR</item>
+        <item>MYR</item>
+        <item>BGN</item>
+        <item>USD</item>
+        <item>RUB</item>
+        <item>THB</item>
+        <item>IDR</item>
+        <item>CAD</item>
+        <item>HKD</item>
+        <item>ISK</item>
+        <item>PHP</item>
+        <item>DKK</item>
     </string-array>
 
 </resources>
