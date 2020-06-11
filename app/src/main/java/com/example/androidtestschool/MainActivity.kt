@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        exchangeRate.text = EXCHANGE_RATE.toString()
         // Скопировать значение из окна результата
         resultAmount.setOnClickListener {
             copyToClipboard(resultAmount.text)

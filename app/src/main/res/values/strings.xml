@@ -6,4 +6,5 @@
     <string name="usd_result">Результат в долларах</string>
     <string name="copied">Скопировано в буфер</string>
     <string name="wrong_format_warning">Неправильный формат ввода</string>
+    <string name="rate_hint">Текущий курс: </string>
 </resources>
