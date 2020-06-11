@@ -7,4 +7,21 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="HeaderPrimary">
+        <item name="android:textSize">
+            18sp
+        </item>
+        <item name="android:textColor">
+            @color/hintColor
+        </item>
+    </style>
+
+    <style name="ButtonPrimary">
+        <item name="android:textSize">
+            20sp
+        </item>
+        <item name="android:textColor">
+            @color/colorTextWhite
+        </item>
+    </style>
 </resources>
