@@ -16,9 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         // Скопировать значение из окна результата
         resultAmount.setOnClickListener {
-            val clipboard =
-                getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            clipboard.setPrimaryClip(ClipData.newPlainText("rate", resultAmount.text))
+            copyToClipboard(resultAmount.text)
         }
         transferButton.setOnClickListener {
             transferButton.hideKeyboard() // прячем клаву

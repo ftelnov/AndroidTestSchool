@@ -9,7 +9,7 @@
 
     <style name="HeaderPrimary">
         <item name="android:textSize">
-            18sp
+            28sp
         </item>
         <item name="android:textColor">
             @color/hintColor
